@@ -7,8 +7,9 @@ import java.util.List;
 
 public interface CarRepository {
 
+    public List<Car> findAllCars();
 
-    void saveCar(Car theCar);
+    public void saveCar(Car theCar);
 
     Car findCarById(int theId);
 

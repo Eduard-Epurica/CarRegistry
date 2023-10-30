@@ -12,8 +12,8 @@ public class CarDetail {
     private int id;
 
 
-    @Column(name="current_location")
-    private String current_location;
+    @Column(name="type")
+    private String type;
 
     @Column(name="model_year")
     private int modelYear;
@@ -27,8 +27,8 @@ public class CarDetail {
     public CarDetail() {
     }
 
-    public CarDetail(String current_location, int modelYear, double price, String color) {
-        this.current_location = current_location;
+    public CarDetail(String type, int modelYear, double price, String color) {
+        this.type = type;
         this.modelYear = modelYear;
         this.price = price;
         this.color = color;
@@ -42,12 +42,12 @@ public class CarDetail {
         this.id = id;
     }
 
-    public String getCurrent_location() {
-        return current_location;
+    public String getType() {
+        return type;
     }
 
-    public void setCurrent_location(String current_location) {
-        this.current_location = current_location;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getModelYear() {

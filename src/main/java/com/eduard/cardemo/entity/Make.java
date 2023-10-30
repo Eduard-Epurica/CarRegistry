@@ -64,4 +64,10 @@ public class Make {
     public void setCars(List<Car> cars) {
         this.cars = cars;
     }
+
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }

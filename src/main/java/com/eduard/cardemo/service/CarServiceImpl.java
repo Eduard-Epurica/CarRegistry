@@ -1,14 +1,25 @@
 package com.eduard.cardemo.service;
 
+import com.eduard.cardemo.dao.CarRepository;
 import com.eduard.cardemo.entity.Car;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CarServiceImpl implements CarService {
+
+    private CarRepository carRepository;
+
+    @Autowired
+    public CarServiceImpl(CarRepository carRepository) {
+        this.carRepository = carRepository;
+    }
 
     @Override
     public List<Car> findAll() {
-        return null;
+        return carRepository.findAllCars();
     }
 
     @Override
@@ -18,7 +29,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void save(Car theCar) {
-
+        carRepository.saveCar(theCar);
     }
 
     @Override

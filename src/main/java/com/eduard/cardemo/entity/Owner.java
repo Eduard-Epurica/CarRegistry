@@ -20,7 +20,7 @@ public class Owner {
     private String lastName;
 
     @OneToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-    @Column(name="location_id")
+    @JoinColumn(name="location_id")
     private Location location;
 
     @OneToMany(fetch = FetchType.LAZY,
@@ -76,5 +76,10 @@ public class Owner {
 
     public void setCars(List<Car> cars) {
         this.cars = cars;
+    }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName;
     }
 }

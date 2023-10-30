@@ -3,6 +3,7 @@ package com.eduard.cardemo.dao;
 import com.eduard.cardemo.entity.Car;
 import com.eduard.cardemo.entity.Owner;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,15 +16,30 @@ public class CarRepositoryImpl implements CarRepository{
     private EntityManager entityManager;
 
 
+
     @Autowired
     public CarRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
+    }
+
+
+    @Override
+    public List<Car> findAllCars() {
+        //create a custom query for retrieving the cars
+        TypedQuery<Car> query = entityManager.createQuery(
+                "FROM Car WHERE id>0", Car.class);
+
+        //execute query
+        List<Car> cars = query.getResultList();
+
+        return cars;
     }
 
     @Override
     @Transactional
     public void saveCar(Car theCar) {
 
+        entityManager.persist(theCar);
     }
 
     @Override
