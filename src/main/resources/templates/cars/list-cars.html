@@ -49,18 +49,18 @@
 
             <!-- Add update button/link -->
             <td>
-                <a th:href="@{/cars/showFormForUpdate(employeeId=${tempCar.id})}"
+                <a th:href="@{/cars/showFormForUpdate(carId=${tempCar.id})}"
                    class="btn btn-primary btn-sm">
                     Update
                 </a>
 
-                <a th:href="@{/cars/showFormForUpdate(employeeId=${tempCar.id})}"
+                <a th:href="@{/cars/showFormForUpdate(carId=${tempCar.id})}"
                    class="btn btn-info btn-sm">
                     Info
                 </a>
 
                 <!-- Add "delete" button/link -->
-                <a th:href="@{/employees/delete(employeeId=${tempCar.id})}"
+                <a th:href="@{/cars/delete(carId=${tempCar.id})}"
                    class="btn btn-danger btn-sm"
                    onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
                     Delete

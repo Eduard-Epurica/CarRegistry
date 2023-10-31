@@ -16,10 +16,10 @@ public class CarDetail {
     private String type;
 
     @Column(name="model_year")
-    private int modelYear;
+    private Integer modelYear;
 
     @Column(name="price")
-    private double price;
+    private Double price;
 
     @Column(name="color")
     private String color;
@@ -27,7 +27,7 @@ public class CarDetail {
     public CarDetail() {
     }
 
-    public CarDetail(String type, int modelYear, double price, String color) {
+    public CarDetail(String type, Integer modelYear, Double price, String color) {
         this.type = type;
         this.modelYear = modelYear;
         this.price = price;
@@ -50,19 +50,19 @@ public class CarDetail {
         this.type = type;
     }
 
-    public int getModelYear() {
+    public Integer getModelYear() {
         return modelYear;
     }
 
-    public void setModelYear(int modelYear) {
+    public void setModelYear(Integer modelYear) {
         this.modelYear = modelYear;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

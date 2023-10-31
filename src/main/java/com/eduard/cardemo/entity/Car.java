@@ -102,4 +102,16 @@ public class Car {
     public void setLocation(Location location) {
         this.location = location;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "model='" + model + '\'' +
+                ", vin='" + vin + '\'' +
+                ", carDetail=" + carDetail +
+                ", owner=" + owner +
+                ", make=" + make +
+                ", location=" + location +
+                '}';
+    }
 }

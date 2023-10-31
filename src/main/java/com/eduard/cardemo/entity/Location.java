@@ -18,7 +18,7 @@ public class Location {
     private String country;
 
     @Column(name="postalcode")
-    private int postalcode;
+    private String postCode;
 
     @OneToMany(fetch = FetchType.LAZY,
                 mappedBy = "location",
@@ -26,9 +26,9 @@ public class Location {
                     CascadeType.PERSIST,CascadeType.REFRESH})
     private List<Car> cars;
 
-    public Location(String country, int postalcode) {
+    public Location(String country, String postCode) {
         this.country = country;
-        this.postalcode = postalcode;
+        this.postCode = postCode;
     }
 
     public Location() {
@@ -50,12 +50,12 @@ public class Location {
         this.country = country;
     }
 
-    public int getPostalcode() {
-        return postalcode;
+    public String getPostCode() {
+        return postCode;
     }
 
-    public void setPostalcode(int postalcode) {
-        this.postalcode = postalcode;
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
     }
 
     public List<Car> getCars() {

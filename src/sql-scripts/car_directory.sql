@@ -14,7 +14,7 @@ use `car_directory`;
 
 CREATE TABLE `car_detail` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `current_location` varchar(128) DEFAULT NULL,
+  `type` varchar(128) DEFAULT NULL,
   `model_year` int NOT NULL,
   `price` float NOT NULL,
   `color` varchar(45) DEFAULT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `owner` (
   `last_name` varchar(45) DEFAULT NULL,
   `location_id` int DEFAULT NULL,
   
-   PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`),
   
   KEY `FK_OWNER_LOCATION_idx` (`location_id`),
   CONSTRAINT `FK_OWNER_LOCATION` 
