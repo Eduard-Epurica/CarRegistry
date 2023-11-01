@@ -91,14 +91,34 @@ CREATE TABLE `car` (
 INSERT INTO `make` VALUES 
 	(1,'Porsche','Europe'),
     (2,'Toyota','Asia'),
-    (3,'Nissan','Asia');
+    (3,'Nissan','Asia'),
+    (4,'Kia','Asia'),
+    (5,'Hyundai','Asia'),
+    (6,'Mazda','Asia'),
+    (7,'BMW','Europe'),
+    (8,'Volkswagen','Europe'),
+    (9,'Mercedes-Benz','Europe'),
+    (10,'Skoda','Europe'),
+    (11,'Lamborghini','Europe'),
+    (12,'Fiat','Europe'),
+    (13,'Seat','Europe'),
+    (14,'Volvo','Europe'),
+    (15,'Dacia','Europe'),
+    (16,'Ford','North America'),
+    (17,'Chevrolet','North America'),
+    (18,'Tesla','North America'),
+    (19,'Dodge','North America'),
+    (20,'Cadillac','North America'),
+    (21,'Suzuki','Asia'),
+    (22,'Peugeot','Europe'),
+    (23,'Renault','Europe');
 
 INSERT INTO `car_detail` VALUES 
-	(1,'Bucharest',2019,19000,'Red'),
-	(2,'Craiova',1999,80000,'Blue'),
-	(3,'New York',2020,34500,'White'),
-	(4,'Barcelona',2022,21000,'Black'),
-	(5,'Tokyo',2019,10502,'Pink');
+	(1,'Convertible',2019,19000,'Red'),
+	(2,'Coupe',1999,80000,'Blue'),
+	(3,'Coupe',2020,34500,'White'),
+	(4,'Hatchback',2022,21000,'Black'),
+	(5,'Sedan',2019,10502,'Pink');
 
 INSERT INTO `location` VALUES 
 	(1,'London',3025),

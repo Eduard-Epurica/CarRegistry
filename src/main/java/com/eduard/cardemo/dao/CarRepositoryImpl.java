@@ -45,7 +45,7 @@ public class CarRepositoryImpl implements CarRepository{
 
     @Override
     public Car findCarById(int theId) {
-        return null;
+        return entityManager.find(Car.class,theId);
     }
 
     @Override
@@ -79,6 +79,16 @@ public class CarRepositoryImpl implements CarRepository{
     @Transactional
     public void updateCar(Car theCar) {
 
+        Car tempCar = entityManager.find(Car.class,theCar.getId());
+
+        tempCar.setModel(theCar.getModel());
+        tempCar.setCarDetail(theCar.getCarDetail());
+        tempCar.setMake(theCar.getMake());
+        tempCar.setOwner(theCar.getOwner());
+        tempCar.setVin(theCar.getVin());
+        tempCar.setLocation(theCar.getLocation());
+
+        entityManager.merge(tempCar);
     }
 
     @Override

@@ -1,11 +1,7 @@
 package com.eduard.cardemo.service;
 
-import com.eduard.cardemo.dao.CarRepository;
-import com.eduard.cardemo.dao.MakeRepository;
-import com.eduard.cardemo.dao.OwnerRepository;
-import com.eduard.cardemo.entity.Car;
-import com.eduard.cardemo.entity.Make;
-import com.eduard.cardemo.entity.Owner;
+import com.eduard.cardemo.dao.*;
+import com.eduard.cardemo.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,14 +12,18 @@ public class CarServiceImpl implements CarService {
 
     private CarRepository carRepository;
     private OwnerRepository ownerRepository;
-
     private MakeRepository makeRepository;
+    private  CarDetailRepository carDetailRepository;
+
+    private LocationRepository locationRepository;
 
     @Autowired
-    public CarServiceImpl(CarRepository carRepository, OwnerRepository ownerRepository, MakeRepository makeRepository) {
-        this.ownerRepository = ownerRepository;
+    public CarServiceImpl(CarRepository carRepository, OwnerRepository ownerRepository, MakeRepository makeRepository, CarDetailRepository carDetailRepository, LocationRepository locationRepository) {
         this.carRepository = carRepository;
+        this.ownerRepository = ownerRepository;
         this.makeRepository = makeRepository;
+        this.carDetailRepository = carDetailRepository;
+        this.locationRepository = locationRepository;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car findById(int theId) {
-        return null;
+        return carRepository.findCarById(theId);
     }
 
     @Override
@@ -55,5 +55,31 @@ public class CarServiceImpl implements CarService {
     @Override
     public void deleteById(int theId) {
 
+    }
+
+    @Override
+    public void update(Car theCar) {
+
+        Car oldCar = carRepository.findCarById(theCar.getId());
+
+        Owner theOwner = ownerRepository.findByFirstNameAndLastName(theCar.getOwner().getFirstName(), theCar.getOwner().getLastName());
+        Make theMake = makeRepository.findByName(theCar.getMake().getName());
+        Location location = locationRepository.findByPostCode(theCar.getLocation().getPostCode());
+
+
+        System.out.println(theCar.getCarDetail().getId());
+
+        //Build association with existing db data
+        theCar.getCarDetail().setId(oldCar.getCarDetail().getId());
+        theCar.setMake(theMake);
+
+        if(theOwner != null){
+            theCar.setOwner(theOwner);
+        }
+        if(location != null){
+            theCar.setLocation(location);
+        }
+
+        carRepository.updateCar(theCar);
     }
 }

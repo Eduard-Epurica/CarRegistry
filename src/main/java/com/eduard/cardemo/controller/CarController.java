@@ -1,6 +1,7 @@
 package com.eduard.cardemo.controller;
 
 
+import com.eduard.cardemo.dao.CarDetailRepository;
 import com.eduard.cardemo.dao.MakeRepository;
 import com.eduard.cardemo.entity.Car;
 import com.eduard.cardemo.entity.CarDetail;
@@ -26,11 +27,14 @@ public class CarController {
     @Value("#{'${arrayOfColors}'.split(',')}")
     List<String> colors;
     private final MakeRepository makeRepository;
+    private final CarDetailRepository carDetailRepository;
 
     public CarController(CarService carService,
-                         MakeRepository makeRepository) {
+                         MakeRepository makeRepository,
+                         CarDetailRepository carDetailRepository) {
         this.carService = carService;
         this.makeRepository = makeRepository;
+        this.carDetailRepository = carDetailRepository;
     }
 
     @GetMapping("/list")
@@ -106,6 +110,17 @@ public class CarController {
         carService.save(theCar);
 
         //use a redirect to prvent duplicate submissions
+        return "redirect:/cars/list";
+
+    }
+
+    @PostMapping("/update")
+    private String updateCar(@ModelAttribute("car") Car theCar){
+
+        //save the care
+        carService.update(theCar);
+
+        //use a redirect to prevent duplicate submissions
         return "redirect:/cars/list";
 
     }
