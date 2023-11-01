@@ -1,6 +1,7 @@
 package com.eduard.cardemo.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 

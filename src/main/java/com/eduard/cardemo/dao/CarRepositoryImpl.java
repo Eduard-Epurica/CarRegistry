@@ -57,6 +57,8 @@ public class CarRepositoryImpl implements CarRepository{
     @Transactional
     public void deleteCarById(int theId) {
 
+        Car tempCar = entityManager.find(Car.class,theId);
+        entityManager.remove(tempCar);
     }
 
     @Override

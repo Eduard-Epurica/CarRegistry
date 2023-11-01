@@ -1,6 +1,8 @@
 package com.eduard.cardemo.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
@@ -14,9 +16,13 @@ public class Owner {
     private int id;
 
     @Column(name="first_name")
+    @NotNull(message="First Name is required")
+    @Size(min=1,message="First Name is required")
     private String firstName;
 
     @Column(name="last_name")
+    @NotNull(message="Last Name is required")
+    @Size(min=1,message="Last Name is required")
     private String lastName;
 
     @OneToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})

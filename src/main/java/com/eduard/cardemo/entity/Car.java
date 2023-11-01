@@ -2,6 +2,9 @@ package com.eduard.cardemo.entity;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import org.springframework.lang.NonNull;
 
 @Entity
 @Table(name="car")
@@ -13,9 +16,13 @@ public class Car {
     private int id;
 
     @Column(name="model")
+    @NotNull(message="Model is required")
+    @Size(min=1,message="Model is required")
     private String model;
 
     @Column(name="vin")
+    @NotNull(message="Vin is required")
+    @Size(min=1,message="Vin is required")
     private String vin;
 
     @OneToOne(cascade = CascadeType.ALL)
