@@ -1,6 +1,7 @@
 package com.eduard.cardemo.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -18,12 +19,16 @@ public class CarDetail {
     private String type;
 
     @Column(name="model_year")
+    @NotNull(message = "Model Year is Required")
     private Integer modelYear;
 
+
     @Column(name="price")
+    @NotNull(message = "Price is Required")
     private Double price;
 
     @Column(name="color")
+    @NotNull(message = "Color is Required")
     private String color;
 
     public CarDetail() {

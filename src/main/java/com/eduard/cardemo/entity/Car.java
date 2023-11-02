@@ -2,6 +2,7 @@ package com.eduard.cardemo.entity;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.springframework.lang.NonNull;
@@ -27,11 +28,13 @@ public class Car {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "car_detail_id")
+    @Valid
     private CarDetail carDetail;
 
     @ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,
             CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinColumn(name="owner_id")
+    @Valid
     private Owner owner;
 
     @ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,
@@ -42,6 +45,7 @@ public class Car {
     @ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,
             CascadeType.PERSIST,CascadeType.REFRESH})
     @JoinColumn(name="location_id")
+    @Valid
     private Location location;
 
 

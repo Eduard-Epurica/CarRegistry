@@ -10,6 +10,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
   <title>Update Car</title>
+
+  <style>
+    .error {color:red}
+  </style>
 </head>
 
 <body>
@@ -44,26 +48,50 @@
 
     <br><br>
 
+    <span th:if="${#fields.hasErrors('model')}"  th:errors="*{model}"  class="error">
+    </span>
+
     Model : <input type="text" th:field="*{model}"
            class="form-control mb-4 w-25" placeholder="Model">
+
+    <span th:if="${#fields.hasErrors('vin')}"  th:errors="*{vin}"  class="error">
+    </span>
 
     Vin : <input type="text" th:field="*{vin}"
            class="form-control mb-4 w-25" placeholder="Vin">
 
+    <span th:if="${#fields.hasErrors('owner.firstName')}"  th:errors="*{owner.firstName}"  class="error">
+    </span>
+
     First Name : <input type="text" th:field="*{owner.firstName}"
            class="form-control mb-4 w-25" placeholder="Owner First Name">
 
+    <span th:if="${#fields.hasErrors('owner.lastName')}"  th:errors="*{owner.lastName}"  class="error">
+    </span>
+
     Last Name : <input type="text" th:field="*{owner.lastName}"
            class="form-control mb-4 w-25" placeholder="Owner Last Name">
+
+    <span th:if="${#fields.hasErrors('carDetail.modelYear')}"  th:errors="*{carDetail.modelYear}" class="error">
+    </span>
 
     Model Year : <input type="text" th:field="*{carDetail.modelYear}"
            class="form-control mb-4 w-25" placeholder="Model Year">
 
     Price : <input type="text" th:field="*{carDetail.price}"
            class="form-control mb-4 w-25" placeholder="Price">
+    <span th:if="${#fields.hasErrors('carDetail.price')}"
+          th:errors="*{carDetail.price}"
+          class="error"></span>
+
+    <span th:if="${#fields.hasErrors('location.postCode')}"
+          th:errors="*{location.postCode}" class="error"></span>
 
     Postcode : <input type="text" th:field="*{location.postCode}"
            class="form-control mb-4 w-25" placeholder="Postcode">
+
+    <span th:if="${#fields.hasErrors('location.country')}"
+          th:errors="*{location.country}" class="error"></span>
 
     Country : <input type="text" th:field="*{location.country}"
            class="form-control mb-4 w-25" placeholder="Country">

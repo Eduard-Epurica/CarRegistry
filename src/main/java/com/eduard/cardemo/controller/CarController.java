@@ -21,8 +21,8 @@ import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/cars")
-@CrossOrigin(origins = "http://localhost:8080")
 public class CarController {
+
 
     private CarService carService;
     @Value("#{'${arrayOfTypes}'.split(',')}")
@@ -111,6 +111,8 @@ public class CarController {
     @PostMapping("/save")
     private String saveCar(@Valid @ModelAttribute("car") Car theCar, BindingResult bindingResult){
 
+
+
         if(bindingResult.hasErrors()){
             return "cars/cars-form";
         }else {
@@ -124,13 +126,17 @@ public class CarController {
     }
 
     @PostMapping("/update")
-    private String updateCar(@ModelAttribute("car") Car theCar){
+    private String updateCar(@Valid @ModelAttribute("updateCar") Car theCar, BindingResult bindingResult){
 
-        //save the care
-        carService.update(theCar);
+        if(bindingResult.hasErrors()){
+            return "cars/cars-update-form";
+        }else {
+            //save the care
+            carService.update(theCar);
 
-        //use a redirect to prevent duplicate submissions
-        return "redirect:/cars/list";
+            //use a redirect to prvent duplicate submissions
+            return "redirect:/cars/list";
+        }
 
     }
 

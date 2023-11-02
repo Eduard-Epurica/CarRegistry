@@ -68,19 +68,25 @@
     <input type="text" th:field="*{owner.lastName}"
            class="form-control mb-4 w-25" placeholder="Owner Last Name">
 
+    <span th:if="${#fields.hasErrors('carDetail.modelYear')}"  th:errors="*{carDetail.modelYear}" class="error">
+    </span>
     <input type="text" th:field="*{carDetail.modelYear}"
            class="form-control mb-4 w-25" placeholder="Model Year">
 
-    <span th:if="${#fields.hasErrors('carDetail.modelYear')}"
-          th:errors="*{carDetail.modelYear}"
+    <span th:if="${#fields.hasErrors('carDetail.price')}"
+          th:errors="*{carDetail.price}"
           class="error"></span>
-
     <input type="text" th:field="*{carDetail.price}"
            class="form-control mb-4 w-25" placeholder="Price">
 
+
+    <span th:if="${#fields.hasErrors('location.postCode')}"
+          th:errors="*{location.postCode}" class="error"></span>
     <input type="text" th:field="*{location.postCode}"
            class="form-control mb-4 w-25" placeholder="Postcode">
 
+    <span th:if="${#fields.hasErrors('location.country')}"
+          th:errors="*{location.country}" class="error"></span>
     <input type="text" th:field="*{location.country}"
            class="form-control mb-4 w-25" placeholder="Country">
 
