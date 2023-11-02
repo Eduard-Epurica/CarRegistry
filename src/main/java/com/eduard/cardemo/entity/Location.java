@@ -72,4 +72,8 @@ public class Location {
         this.cars = cars;
     }
 
+    @Override
+    public String toString() {
+        return country + ", PostCode: " + postCode;
+    }
 }

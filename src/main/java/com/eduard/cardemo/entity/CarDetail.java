@@ -31,6 +31,9 @@ public class CarDetail {
     @NotNull(message = "Color is Required")
     private String color;
 
+    @Column(name="image_link")
+    private String imageLink;
+
     public CarDetail() {
     }
 
@@ -39,6 +42,14 @@ public class CarDetail {
         this.modelYear = modelYear;
         this.price = price;
         this.color = color;
+    }
+
+    public String getImageLink() {
+        return imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
     }
 
     public int getId() {

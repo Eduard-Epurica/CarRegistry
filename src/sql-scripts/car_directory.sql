@@ -14,10 +14,11 @@ use `car_directory`;
 
 CREATE TABLE `car_detail` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `type` varchar(128) DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL,
   `model_year` int NOT NULL,
   `price` float NOT NULL,
   `color` varchar(45) DEFAULT NULL,
+  `image_link` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
@@ -114,11 +115,11 @@ INSERT INTO `make` VALUES
     (23,'Renault','Europe');
 
 INSERT INTO `car_detail` VALUES 
-	(1,'Convertible',2019,19000,'Red'),
-	(2,'Coupe',1999,80000,'Blue'),
-	(3,'Coupe',2020,34500,'White'),
-	(4,'Hatchback',2022,21000,'Black'),
-	(5,'Sedan',2019,10502,'Pink');
+	(1,'Convertible',2019,19000,'Red','https://purepng.com/public/uploads/large/purepng.com-red-porsche-911-gt3-rs-4-carcarvehicletransportporsche-961524661235vbivb.png'),
+	(2,'Coupe',1999,80000,'Blue','https://www.toyota.co.nz/globalassets/car-images/supra-dbza-nm1-d06-20.png'),
+	(3,'Coupe',2020,34500,'White','https://www.nissan-global.com/EN/HERITAGE/img/modelDetail/402/high.jpg'),
+	(4,'Hatchback',2022,21000,'Black','https://t1-cms.images.toyota-europe.com/toyotaone/gben/1.6-pure-white_tcm-3060-2080305.png'),
+	(5,'Sedan',2019,10502,'Pink','https://carsguide-res.cloudinary.com/image/upload/f_auto,fl_lossy,q_auto,t_default/v1/editorial/vhs/porsche-taycan.png');
 
 INSERT INTO `location` VALUES 
 	(1,'London',3025),

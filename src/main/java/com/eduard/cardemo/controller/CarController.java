@@ -107,6 +107,24 @@ public class CarController {
         return "cars/cars-update-form";
 
     }
+    @GetMapping("/showDetails")
+    public String showDetails(@RequestParam("carId") int theId,Model theModel){
+
+        Car theCar = carService.findById(theId);
+        System.out.println(theCar);
+
+        theModel.addAttribute("car", theCar);
+        theModel.addAttribute("types", types);
+        theModel.addAttribute("colors",colors);
+        List<String> makeList = makeRepository.findAll().stream()
+                .map(Make::getName)
+                .collect(Collectors.toList());
+        theModel.addAttribute("make", makeList);
+
+
+        return "cars/cars-test-details";
+
+    }
 
     @PostMapping("/save")
     private String saveCar(@Valid @ModelAttribute("car") Car theCar, BindingResult bindingResult){
