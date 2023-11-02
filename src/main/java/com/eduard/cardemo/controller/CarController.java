@@ -109,8 +109,7 @@ public class CarController {
     }
 
     @PostMapping("/save")
-    private String saveCar(@Valid @ModelAttribute("car") Car theCar,
-                           @Valid @ModelAttribute("owner") Owner theOwner, BindingResult bindingResult){
+    private String saveCar(@Valid @ModelAttribute("car") Car theCar, BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
             return "cars/cars-form";
