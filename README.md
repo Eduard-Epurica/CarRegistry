@@ -4,7 +4,7 @@
 Simple REST backend API with CRUD Functionality for managing a car registry.
 
 
-![image](https://github.com/Eduard-Epurica/CarRegistry/assets/64744850/b81bc12d-a680-4bc3-bf6b-caee9f922a5c)
+![image](https://github.com/Eduard-Epurica/CarRegistry/assets/64744850/f238d75e-2611-4560-8ed7-acd208204025)
 
 User interaction is facilitated by Spring MVC with Thymeleaf
 
