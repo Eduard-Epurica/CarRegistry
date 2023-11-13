@@ -16,7 +16,8 @@ Security is acomplished using built-in spring Security with BCrypt database encr
 
 MySQL Relational database connection done using JPA with Hibernate
 
-![image](https://github.com/Eduard-Epurica/CarRegistry/assets/64744850/aa37728f-8f7a-42f3-bc7d-4b2cb33ca7de)
+![image](https://github.com/Eduard-Epurica/CarRegistry/assets/64744850/5af193d0-3697-47c6-8616-be05f95b71cd)
+
 
 
 
