@@ -12,6 +12,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import javax.sql.DataSource;
 
@@ -53,16 +54,18 @@ public class SecurityConfig {
 
     //.anyRequest().authenticated() -> Any request coming into our app must be authenticated
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain filterChain(HttpSecurity http, AuthenticationSuccessHandler customAuthenticationSuccessHandler) throws Exception{
 
         http.authorizeHttpRequests(configurer->
                         configurer
+                                .requestMatchers("/register/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin(form->
                         form
                                 .loginPage("/showLoginPage")
                                 .loginProcessingUrl("/authenticateUser")
+                                .successHandler(customAuthenticationSuccessHandler)
                                 .permitAll()
 
                 )

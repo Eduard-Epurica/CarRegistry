@@ -1,5 +1,6 @@
 package com.eduard.cardemo.controller;
 
+import com.eduard.cardemo.security.WebUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ public class DefaultController {
 
         return "login/cars-login";
     }
+
 
     // add a request mapping for /access-denied
 //

@@ -20,7 +20,6 @@
 
                     <div class="card-body">
                         <div class="card-text">
-
                             <!-- Login Form -->
                             <form action="#" th:action="@{/authenticateUser}" method="POST" class="form-horizontal">
 
@@ -67,17 +66,14 @@
                                     </div>
                                 </div>
 
-                                <a th:href="@{/register/showRegistrationForm}"
-                                   class="btn btn-primary mt-3"
-                                   role="button"
-                                   aria-pressed="true"
-                                   style="float: right;"
-                                   display="inline" >Register New User</a>
-
                             </form>
-
-
-                            
+                        </div>
+                        <div>
+                            <a th:href="@{/register/showRegistrationForm}"
+                               class="btn btn-primary mt-3"
+                               role="button"
+                               aria-pressed="true"
+                               display="inline">Register New User</a>
                         </div>
                     </div>
                 </div>
